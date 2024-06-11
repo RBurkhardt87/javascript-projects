@@ -1,3 +1,6 @@
+//Updating Chapter 4 exercise
+
+
 //Setting the variables and values from the chart
 let spaceShuttle = 'Determination';
 let shuttleSpeedMph = 17500;
