@@ -9,4 +9,6 @@
    multi-line
    comments. */
 
-   console.log("Comments make your code more readable by others.");
+   console.log("Comments make your code more readable by others."); /*As you can see here, you can write 
+   as much as you want and it won't print */
+
