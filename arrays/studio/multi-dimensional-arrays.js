@@ -33,24 +33,29 @@ console.log(`You picked cabinet ${cabinetNum}`)
 
 /*      I am trying to figure out how to do a conditional. Technically the user's input needs to be between 
         0-3. I have it working for any number over 3, but I am trying to make sure the number isn't a negative 
-        either. However, I can seem to get the Logical OR conditional to work properly.
-if  (cabinetNum <= 3 || cabinetNum => 0) {
-    console.log(cargoHold[cabinetNum]); */
+        either. However, I can't seem to get the Logical OR conditional to work properly. 
 
-if (cabinetNum <= 3) {
-    //console.log(cargoHold[cabinetNum]);
-    console.log(`${cargoHold[cabinetNum]}`)
+if  (cabinetNum <= 3 || cabinetNum >= 0) {
+    console.log(`${cargoHold[cabinetNum]}`); 
 }   else {
     console.log("ERROR: invalid number entered!");
 }
+*/
+
+if (cabinetNum <= 3) {
+    //console.log(cargoHold[cabinetNum]);       //Just bracket notation
+    console.log(`${cargoHold[cabinetNum]}`) 
+}   else {
+    console.log("ERROR: invalid number entered!");
+}
+
 /*     Also, did we want to use a template literal to have the return as a string and not showing as an array??
         It just didn't seem any easier than writing it with just the bracket notation-- unless I didn't do it as desired*/
 
 //5) Modify the code to query the user for BOTH a cabinet in cargoHold AND a particular item. Use the 'includes' method to check if the cabinet contains the selected item, then print “Cabinet ____ DOES/DOES NOT contain ____.”
+
 let cabinetNum1 = input.question('Please pick a cabinet number ranging from 0-3: ');
 let itemNum = input.question('Please pick an item to look for in the cabinet: ');
-
-console.log()
 
 
 if (cargoHold[cabinetNum1].includes(itemNum)) {
@@ -58,3 +63,6 @@ if (cargoHold[cabinetNum1].includes(itemNum)) {
 }   else {
     console.log(`Cabinet does not contain ${itemNum}`);
 }
+
+// How can I add range into this? With a more complex conditional statement? If I pick a number outside the range of 0-3 it brings up error when picking item
+
