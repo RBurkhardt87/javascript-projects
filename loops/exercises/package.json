@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "name": "exercises",
+  "version": "1.0.0",
+  "main": "for-Loop-Exercises.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
