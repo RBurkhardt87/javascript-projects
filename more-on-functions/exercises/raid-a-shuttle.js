@@ -64,17 +64,25 @@ let levels = function(n){
 
 let backpack = [];
 let bunkBed = function(arr) {
-  
-  let item1= cargoHold.splice([1], 1);
+
+   
+  let item1 = cargoHold.splice([1], 1);
   let item2 = cargoHold.splice([3], 1);
-  let replaceItem1 = 'puzzle';
-  let replaceItem2 = 'bubble gum';
-  cargoHold.push(replaceItem1, replaceItem2);
+
+
+  // cargoHold.splice(1,0,'bubble gum');    //This seems faster. You don't have to declare two variables
+  // cargoHold.splice(4,0, 'puzzle');      // and you don't have to push anything to an array. And below, even faster
+
+  cargoHold.splice(1,0,'bubble gum') + cargoHold.splice(4,0, 'puzzle'); // you can method chain together 
+
+  // let replaceItem1 = 'puzzle';
+  // let replaceItem2 = 'bubble gum';
+  // cargoHold.push(replaceItem1, replaceItem2);
   backpack.push(item1, item2);
   // console.log(item1);
   // console.log(item2);
-  // console.log(backpack);
-  // console.log(cargoHold);
+  console.log(backpack);
+  console.log(cargoHold);
   return;
 }
 bunkBed();
