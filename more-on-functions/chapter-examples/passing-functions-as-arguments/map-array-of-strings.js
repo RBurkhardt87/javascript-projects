@@ -3,15 +3,15 @@ let names = ["Chris", "Jim", "Sally", "Blake", "Paul", "John", "Courtney", "Carl
 // TODO: Write a mapping function
 // and pass it to .map()
 
-let getInitial = function(n) {
-for (let i = 0; i < names.length; i++){
-  return n[i];
-}
-};
-let firstInitials = names.map(getInitial);
+// let getInitial = function(n) {
+// for (let i = 0; i < names.length; i++){
+//   return n[i];
+// }
+// };
+// let firstInitials = names.map(getInitial);
 
-console.log(names);
-console.log(firstInitials);
+// console.log(names);
+// console.log(firstInitials);
 
 
 
@@ -23,4 +23,12 @@ console.log(firstInitials);
 //     }
 // });
 
+// console.log(firstInitials);
+
+
+
+//Goofing off with the code
+// let firstInitials = names.map((name) => {
+//   return name[0].toLowerCase() + name.slice(1).toUpperCase();
+// });
 // console.log(firstInitials);
