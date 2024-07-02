@@ -35,6 +35,22 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Decide where to best place your function call to gather our new fuel.
 
+let levels = function(n){
+ if (checkFuel(n) === 'green') {
+  return n - 100001;
+ }  
+  else if (checkFuel(n) === 'yellow') {
+    return n -50001;
+  }
+    else {
+      return n;
+    }
+
+}; 
+// console.log(levels(fuelLevel));
+
+
+
 /* Next, liberate some of that glorious cargo.
  */
 
@@ -46,6 +62,23 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Don’t get hasty, matey! Remember to test your function.
 
+let backpack = [];
+let bunkBed = function(arr) {
+  
+  let item1= cargoHold.splice([1], 1);
+  let item2 = cargoHold.splice([3], 1);
+  let replaceItem1 = 'puzzle';
+  let replaceItem2 = 'bubble gum';
+  cargoHold.push(replaceItem1, replaceItem2);
+  backpack.push(item1, item2);
+  // console.log(item1);
+  // console.log(item2);
+  // console.log(backpack);
+  // console.log(cargoHold);
+  return;
+}
+bunkBed();
+
 /* Finally, you need to print a receipt for the accountant. Don’t laugh! That genius knows MATH and saves us more gold than you can imagine.
  */
  
@@ -54,3 +87,9 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+
+let irs = function(levelOfFuel, shipsCargoHold) {
+  return (`Raided ${levels(fuelLevel)} kg of fuel from the tanks, and stole ${backpack[0]} and ${backpack[1]} from the cargo hold.`);
+
+}
+console.log(irs());
