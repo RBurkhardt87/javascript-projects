@@ -7,3 +7,7 @@ let tortoiseOne = {
 };
 
 // Using a for..in loop, iterate through each property in the tortoiseOne object and print the value to the console.
+
+for (let property in tortoiseOne) {
+   console.log(`${property} : ${tortoiseOne[property]}`);
+}
