@@ -95,6 +95,17 @@ function findMinValue(arr){
 
 //Sample arrays for testing:
 
+
+
+
+
+
+
+
+
+
+
+
 //----------------------------------------------------------------------------------------------------------------------
 //-------------------------------------FOLLOWING WITH THE STUDIO VIDEO TO HELP------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------
@@ -142,19 +153,44 @@ function findMinValue(arr){
 
 //We are actually going to start at the end of the array and work our way back to the first by decrementing by 1 instead if incrementing...
 
-function sortArray(unsortedArray) {
-  let newArray = [];                                                              //we still need to declare and initialize a new array to store.
+// function sortArray(unsortedArray) {
+//   let newArray = [];                                                              //we still need to declare and initialize a new array to store.
 
 
-  for(let i = unsortedArray.length -1; i >= 0; i-- ) {                            //So, we set i to the length of the array -1. The -1 is because lenth starts with 1 and index starts with 0. 
-    let smallestValue = findMinValue(unsortedArray);                              // to get to the last elements index, you take length -1. 
-    newArray.push(smallestValue);                                                 // Next, the condition, we want the loop to run as long as i is >= 0. if it was less than zero, array would be empty
-    unsortedArray.splice(unsortedArray.indexOf(smallestValue), 1);                //if you didn't do = to zero, then it wont get to the first element of the array...  i-- decrements by 1.
+//   for(let i = unsortedArray.length -1; i >= 0; i-- ) {                            //So, we set i to the length of the array -1. The -1 is because lenth starts with 1 and index starts with 0. 
+//     let smallestValue = findMinValue(unsortedArray);                              // to get to the last elements index, you take length -1. 
+//     newArray.push(smallestValue);                                                 // Next, the condition, we want the loop to run as long as i is >= 0. if it was less than zero, array would be empty
+//     unsortedArray.splice(unsortedArray.indexOf(smallestValue), 1);                //if you didn't do = to zero, then it wont get to the first element of the array...  i-- decrements by 1.
+//   }
+
+
+//   return newArray;
+// }
+// console.log(sortArray(nums1));
+// console.log(sortArray(nums2));
+// console.log(sortArray(nums3));
+
+
+//--------------------------------------------BONUS: RECURSION---------------------------------------------
+
+function recursiveSortArray(unsortedArray, newArray = []) {
+  if(unsortedArray.length === 1) {                                                  //BASE CASE: we want there to be only one element left in the array. Once we are down to one number
+    newArray.push(unsortedArray[0]);                                                // we want the recursive function to finsih up and stop. So, when there is one number left, we have the funciton
+                                                                                    // push that last number (we know it is index 0 because there's only one # left) at index 0 through to new Array and 
+                                                                                    // then come down and return the new array-- exiting the funciton. 
+
+  } else {                                                                          // if there is more than 1 number in the array still, you want to push the smallest number into the new array
+    newArray.push(findMinValue(unsortedArray));                                     //by calling the function findMinValue and passing the unsorted array thru. This will add the smallest number to the new array
+    unsortedArray.splice(unsortedArray.indexOf(findMinValue(unsortedArray)), 1);    // but now you must remove the smallest number from the old array by using slice. You slice the indexOf the function that finds the 
+                                                                                    //smalles number and removes it. We follow it with a 1 because we only want to remove the one number.
+                                                                                    //Above, in the while loop, we set the smallestValue = findMinValue(unsortedArray). That is why we found the indexOf(smallestValue) instead.
+   recursiveSortArray(unsortedArray, newArray);                                     //By calling recursiveSortedAway, it tells the function to go back to the begining and check the if block. It is how the function loops.
+                                                                                    // if it stills has more than one, it will go back to else block, perform the action, and return back to if-- until the base case is met, in which
+                                                                                    // it then will jump down to the return and then exit the funciton. 
   }
-
-
-  return newArray;
+return newArray;
 }
-console.log(sortArray(nums1));
-console.log(sortArray(nums2));
-console.log(sortArray(nums3));
+
+console.log(recursiveSortArray(nums1));
+console.log(recursiveSortArray(nums2));
+console.log(recursiveSortArray(nums3));
