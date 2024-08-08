@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="script.js"></script>
     <meta charset="utf-8">
     <title>Rocket Simulation</title>
     <style>
@@ -9,6 +10,64 @@
   </head>
   <body>
     <!-- TODO: add form here -->
+     <form method="POST" action="https://handlers.education.launchcode.org/request-parrot">
+
+      <!-- NAME (made separate label, so they are located on line above)-->
+      <div>
+        <label>Test Name</label>
+        <input type="text" name="testName" id="name"/>
+      </div>
+     
+      <!-- TEST DATE (made separate label, so they are located on line above)-->
+      <div>
+        <label for="date">Test Date</label>
+        <input id="date" type="date" name="testDate"/>
+      </div>
+
+      <!-- ROCKET TYPE (made separate label, so they are located on line above)-->
+      <div>
+        <label for="rocket">Rocket Type</label>
+        <select name="rocketType" id="rocket">
+          <option value="brant">Brandt</option>
+          <option value="lynx">Lynx</option>
+          <option value="orion">Orion</option>
+          <option value="terrier">Terrier</option>
+        </select>
+      </div>
+
+      <!-- NUMBER OF ROCKET BOOSTERS (wrapped up in label, so on same line) -->
+      <div>
+        <label>Number of Rocket Boosters <input type="number" name="boosterCount" id="boosters" value="10"/></label>
+        
+      </div>
+
+      <!-- WIND RATING (wrapped up in label, so on same line)-->
+      <div>
+        <h4>Wind Rating:</h4>
+        <label>No Wind<input id="noWind" type="radio" name="windRating" value="0"/></label>
+        
+        <label>Mild Wind<input id="mildWind" type="radio" name="windRating" value="10"/></label>
+      
+        <label>Strong Wind<input id="strongWind" type="radio" name="windRating" value="20"/></label>
+        
+      </div>
+
+      <!-- USE PRODUCTION GRADE SERVERS (wrapped up in label, so on same line)-->
+      <div>
+        <label>Use Production Grade Servers<input type="checkbox" name="productionServers" id="prodServers"/></label>
+        
+      </div>
+
+      
+      <!-- SUBMIT BUTTON -->
+      <br>
+      <div>
+        <button id="submit-button">Run Simulation</button>
+      </div>
+      
+
+      
+     </form>
   </body>
   
 </html>
