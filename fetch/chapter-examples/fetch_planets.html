@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+      <title>Fetch Planets</title>
+      <script>
+       window.addEventListener("load", function() {
+   let json = [];
+   fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response){
+   response.json().then(function(json) {
+      const destination = document.getElementById("destination");
+      let index = 0;
+      destination.addEventListener("click", function(){
+       
+        destination.innerHTML = `
+            <div>
+               <h3>Planet ${json[index].name}</h3>
+               <img src=${json[index].image} height=250></img>
+            </div>
+         `;
+        index = (index + 1) % json.length;
+        
+      });
+   });
+});
+});
+      </script>
+   </head>
+   <body>
+        <h1>Destination</h1>
+        <div id="destination">
+        <h3>Planet: </h3>         
+        </div>     
+   </body>
+</html>
+
+<!-- Declare a counter variable, index that changes each time a click event takes place.
+Use the value of index as the position in the planets array to use in the template literal.
+Finally, since we want to cap the value of index so that it does not exceed the length of the planets array, use a modulo to control how large index can get.
+Et voila! Our destination changes on each click! -->
